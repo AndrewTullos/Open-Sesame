@@ -10,12 +10,16 @@
 
 const generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener('click', function () {
-  const textPromptOne = document.getElementById('password');
-  textPromptOne.innerText = 'Enter how many characters your password should be?';
-  
-  // textPromptOne.innerHTML('<br>');
-})
-
+  const textPromptOne = prompt('Enter how many characters your password should be?', 'Between 8 - 128')
+  if (textPromptOne < 8) {
+    return alert('Dude! No, that is is less than 8. Try again...')
+  } else if (textPromptOne > 128) {
+    return alert('Easy Tiger! That\'s too long! Try again!')
+  } else {
+    const promptAnswerOne = document.getElementById('password')
+    promptAnswerOne.innerText = textPromptOne
+  }
+});
 
 // function writePassword() {
 //     const password = generatePassword();
