@@ -1,27 +1,29 @@
-// Assignment code here
-
-  // WHEN I click the button to generate a password
-  // THEN I am presented with a series of prompts for password criteria
-  // THEN I select which criteria to include in the password
-  // THEN I choose a length of at least 8 characters and no more than 128 characters
-  // THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-  // THEN my input should be validated and at least one character type should be selected
-  // THEN a password is generated that matches the selected criteria
-  // THEN the password is either displayed in an alert or written to the page
-// Get references to the #generate element
-
-
-
-var generateBtn = document.querySelector("#generate");
-
+// Pseudo code 
+// OnClick with button ID to write text  prompts
+// Selectable criteria for password
+// Choose a length 8 - 128
+// Confirm - upper/lower, num, and special
+// Must choose 1
+// GENERATE!
+// Either displayed on an alert or writte to the page
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+const generateBtn = document.querySelector("#generate");
+generateBtn.addEventListener('click', function () {
+  const textPromptOne = document.getElementById('password');
+  textPromptOne.innerText = 'Enter how many characters your password should be?';
+  
+  // textPromptOne.innerHTML('<br>');
+})
 
-}
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// function writePassword() {
+//     const password = generatePassword();
+//     const passwordText = document.querySelector("#password");
+
+//     passwordText.value = password;
+
+//   }
+
+// // Add event listener to generate button
+// generateBtn.addEventListener("click", writePassword);
