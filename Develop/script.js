@@ -8,15 +8,11 @@
 // Either displayed on an alert or writte to the page
 // Write password to the #password input
 
+// Can't remember what this is for? Revisit?
 // Arrays
 // const lowAlphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 // const upperAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 // const specialChar = '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'.split('');
-
-// Password Array
-// const password = [
-
-// ]
 
 // This Code generates the length requested by the user
 const passObj = {
@@ -26,7 +22,6 @@ const passObj = {
   lower: undefined,
 };
 
-console.log(passObj)
 
 const generateBtn = document.querySelector('#generate');
 generateBtn.addEventListener('click', function () {
@@ -43,16 +38,17 @@ generateBtn.addEventListener('click', function () {
   if (specialChar === true) {
     passObj.special = true;
   };
-  const upperAlphabet = confirm('Will your password require upper case?');
+  const upper = confirm('Will your password require upper case?');
   if (upper === true) {
     passObj.upper = true;
   };
-  const lowAlphabet = confirm('Will your password require lower case??');
+  const lower = confirm('Will your password require lower case??');
   if (lower === true) {
     passObj.lower = true;
   };
 })
 
+console.log(passObj)
 
 
 // //Take passwordLength, passwordUp, passwordLow and passwordSpec
