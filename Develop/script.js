@@ -17,68 +17,83 @@ const passObj = {
   upper: undefined,
   lower: undefined,
 };
+
 // User instructions
 // alert('Press the generat button to create a password!')
+// Determines the length of requested password
+const textPromptOne = prompt('Enter how many characters your password should be?', 'Between 8 - 128');
+if (Number(textPromptOne) < 8) {
+  alert('Not enough. Try again');
+} else if (Number(textPromptOne) > 128) {
+  alert('Too many. Try again');
+} else {
+  passObj.length = Number(textPromptOne);
+}
+
+// Determines if password should include special characters
+const specialChar = confirm('Will your password require special characters?');
+if (specialChar === true) {
+  passObj.special = true;
+};
+
+// Determines if password should include uppercase
+const upper = confirm('Will your password require upper case?');
+if (upper === true) {
+  passObj.upper = true;
+};
+
+// Determines if password should include lower case
+const lower = confirm('Will your password require lower case??');
+if (lower === true) {
+  passObj.lower = true;
+};
 
 // Button generates the code to fill the object
 const generateBtn = document.querySelector('#generate');
 generateBtn.addEventListener('click', function () {
-  // Determines the length of requested password
-  const textPromptOne = prompt('Enter how many characters your password should be?', 'Between 8 - 128');
-  if (Number(textPromptOne) < 8) {
-    return alert('Not enough. Try again')
-  } else if (Number(textPromptOne) > 128) {
-    return alert('Too many. Try again')
-  } else {
-    passObj.length = Number(textPromptOne)
-  };
-
-  // Determines if password should include special characters
-  const specialChar = confirm('Will your password require special characters?');
-  if (specialChar === true) {
-    passObj.special = true;
-  };
-
-  // Determines if password should include uppercase
-  const upper = confirm('Will your password require upper case?');
-  if (upper === true) {
-    passObj.upper = true;
-  };
-
-  // Determines if password should include lower case
-  const lower = confirm('Will your password require lower case??');
-  if (lower === true) {
-    passObj.lower = true;
-  };
-
-  // function writePassword() {
-  //   const password = generatePassword();
-  //   const passwordText = document.querySelector("#password");
-  // }
-
-  // for ()
-
+  const password = generatePassword();
+  const passwordText = document.querySelector("#password");
+  passwordText.value = password;
 });
 
-//   }
+// Create placeholder for password to include all true values
+function generatePassword() {
+  let passwordStr = '';
+  if (passObj.special === true) {
+    passwordStr + '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+  }
+  if (passObj.upper === true) {
+    passwordStr + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  }
+  if (passObj.lower === true) {
+    passwordStr + 'abcdefghijklmnopqrstuvwxyz';
+  }
 
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+  // Return the password - set the loop to iterate through the placeholder at random
 
-// Can't remember what this is for? Revisit?
-// Arrays
-const lowAlphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
-for (i = 0, i < lowAlphabet.length, i++) {
-  console.log(lowAlphabet[i]);
+  let password = '';
+  for (let i = 0; i < passObj.length; i++) {
+    const randomMath = Math.floor(Math.random() * passwordStr.length);
+    password += passwordStr[randomMath];
+  }
+  //  Return password 
+  return password;
 }
 
-const upperAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-for (i = 0, i < upperAlphabet.length, i++) {
-  console.log(upperAlphabet[i]);
-}
 
+// Notes:
+// Arrays set to iterate through the length
+// const lowAlphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+// for (i = 0; i < lowAlphabet.length; i++) {
+//   console.log(lowAlphabet[i]);
+// }
 
-const specialChar = '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'.split('');
-for (i = 0, i < specialChar.length, i++) {
-  console.log(specialChar[i]);
-}
+// const upperAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+// for (i = 0; i < upperAlphabet.length; i++) {
+//   console.log(upperAlphabet[i]);
+// }
+
+// const specialChar = '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'.split('');
+// for (i = 0; i < specialChar.length; i++) {
+//   console.log(specialChar[i]);
+// };
