@@ -19,7 +19,7 @@ const passObj = {
 };
 
 // User instructions
-// alert('Press the generat button to create a password!')
+alert('Answer the alert/prompts then press the generate button to create a password!')
 
 // Determines the length of requested password
 const textPromptOne = prompt('Enter how many characters your password should be?', 'Between 8 - 128');
