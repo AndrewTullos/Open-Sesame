@@ -20,6 +20,7 @@ const passObj = {
 
 // User instructions
 // alert('Press the generat button to create a password!')
+
 // Determines the length of requested password
 const textPromptOne = prompt('Enter how many characters your password should be?', 'Between 8 - 128');
 if (Number(textPromptOne) < 8) {
@@ -60,13 +61,13 @@ generateBtn.addEventListener('click', function () {
 function generatePassword() {
   let passwordStr = '';
   if (passObj.special === true) {
-    passwordStr + '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+    passwordStr += '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
   }
   if (passObj.upper === true) {
-    passwordStr + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    passwordStr += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   }
   if (passObj.lower === true) {
-    passwordStr + 'abcdefghijklmnopqrstuvwxyz';
+    passwordStr += 'abcdefghijklmnopqrstuvwxyz';
   }
 
   // Return the password - set the loop to iterate through the placeholder at random
