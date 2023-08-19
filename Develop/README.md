@@ -6,6 +6,8 @@
 
 The Password Generator is a robust, user-friendly web application designed to create unique, strong, and secure passwords in a simple and intuitive manner. The interface is easy to navigate, and users are guided through the process of generating passwords with clear, step-by-step instructions.
 
+- **Deployed application link:** [Open-Sesame](https://andrewtullos.github.io/Open-Sesame/)
+
 ## Key Features
 
 - **User Prompts**: The application provides intuitive user prompts, ensuring that users know exactly what to do. Upon accessing the application, an initial alert informs users of the steps to follow.
